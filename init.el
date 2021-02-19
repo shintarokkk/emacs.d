@@ -54,6 +54,7 @@
 ;; xml-mode
 (add-to-list 'auto-mode-alist '("\\.launch" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.urdf" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.srdf" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.xacro" . nxml-mode))
 
 (use-package yaml-mode
@@ -110,8 +111,13 @@
   :ensure t
   :after flycheck
   :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-doc-delay 1.0)
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-delay 1.0)
+  (lsp-ui-doc-header t)
+  ;; (lsp-ui-doc-use-webkit t)
+  (lsp-ui-doc-use-childframe t)
   )
 
 ;; pyrightは型ヒントしてくれるがnp.matrixでエラー出したりと微妙？
@@ -183,16 +189,23 @@
 ;; TODO: hydraの導入
 
 ;; TODO: yasnippet、またsnippetの例(https://github.com/AndreaCrotti/yasnippet-snippets)の導入
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(cargo rust-mode doom-themes all-the-icons neotree avy euslisp-mode python-black lsp-pyright lsp-ui lsp-mode company flycheck google-c-style yaml-mode use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (electric-pair-mode 1))
+          )
+
+(add-hook 'c-mode-hook
+          (lambda ()
+            (electric-pair-mode 1))
+          )
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (electric-pair-mode 1))
+          )
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (electric-pair-mode 1))
+          )
