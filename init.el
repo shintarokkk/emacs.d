@@ -186,6 +186,10 @@
   :hook (rust-mode . cargo-minor-mode)
   )
 
+(use-package cmake-mode
+  :ensure t
+  )
+
 ;; TODO: hydraの導入
 
 ;; TODO: yasnippet、またsnippetの例(https://github.com/AndreaCrotti/yasnippet-snippets)の導入
