@@ -213,3 +213,9 @@
           (lambda ()
             (electric-pair-mode 1))
           )
+
+(add-hook 'cmake-mode-hook
+          (lambda ()
+            (electric-pair-mode 1))
+          )
+
