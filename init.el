@@ -1,5 +1,6 @@
 ;; Global Setting Key
 (global-set-key "\M-g" 'goto-line)
+(global-set-key "\C-^" 'backward-kill-word)
 
 ;; increase gabage collection (default is supposed to be 80 MB)
 ;; to successfully install doom-theme
