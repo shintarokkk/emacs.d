@@ -1,4 +1,7 @@
 ;; Global Setting Key
+;; prohibit opening another buffer when "M-x shell"
+(setq pop-up-windows nil)
+
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-^" 'backward-kill-word)
 
