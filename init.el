@@ -191,6 +191,14 @@
   :ensure t
   )
 
+(use-package slime
+  :ensure t
+  :init
+  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
+  :config
+  (setq inferior-lisp-program "sbcl")
+  )
+
 ;; TODO: hydraの導入
 
 ;; TODO: yasnippet、またsnippetの例(https://github.com/AndreaCrotti/yasnippet-snippets)の導入
