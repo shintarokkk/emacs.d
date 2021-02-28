@@ -69,14 +69,6 @@
     (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
   ))
 
-(use-package google-c-style
-  :ensure t
-  :config
-  (progn
-    (add-hook 'c-mode-hook 'google-set-c-style)
-    (add-hook 'c++-mode-hook 'google-set-c-style)
-    ))
-
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode t)
@@ -164,10 +156,6 @@
   (bind-key [f8] 'neotree-toggle)
   )
 
-(use-package all-the-icons
-  :ensure t
-  )
-
 (use-package doom-themes
   :ensure t
   :config
@@ -195,18 +183,6 @@
   :ensure t
   )
 
-(use-package slime
-  :ensure t
-  :init
-  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-  :config
-  (setq inferior-lisp-program "sbcl")
-  )
-
-;; TODO: hydraの導入
-
-;; TODO: yasnippet、またsnippetの例(https://github.com/AndreaCrotti/yasnippet-snippets)の導入
-
 (add-hook 'rust-mode-hook
           (lambda ()
             (electric-pair-mode 1))
@@ -231,4 +207,3 @@
           (lambda ()
             (electric-pair-mode 1))
           )
-
