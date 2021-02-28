@@ -1,6 +1,7 @@
 ;; Global Setting Key
 ;; prohibit opening another buffer when "M-x shell"
-(setq pop-up-windows nil)
+(add-to-list 'display-buffer-alist
+             '("^\\*shell\\*$" . (display-buffer-same-window)))
 
 (global-set-key "\M-g" 'goto-line)
 (global-set-key "\C-^" 'backward-kill-word)
