@@ -78,6 +78,8 @@
   :ensure t
   :config
   (global-company-mode)
+  ;; avoid lower casing in plain text
+  (setq company-dabbrev-downcase nil)
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 3)
   (setq company-selection-wrap-around t)
