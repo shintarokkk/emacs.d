@@ -189,7 +189,8 @@
 
 (add-hook 'c-mode-hook
           (lambda ()
-            (electric-pair-mode 1))
+            (electric-pair-mode 1)
+            (setq c-basic-offset 4))
           )
 
 (add-hook 'c++-mode-hook
