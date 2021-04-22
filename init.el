@@ -158,15 +158,15 @@
   (bind-key [f8] 'neotree-toggle)
   )
 
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config
-;;   (setq doom-themes-enable-bold t
-;;         doom-themes-enable-italic t)
-;;   (load-theme 'doom-one t)
-;;   ;; Enable flashing mode-line on errors
-;;   (doom-themes-visual-bell-config)
-;;   )
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one t)
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  )
 
 (use-package rust-mode
   :ensure t
@@ -226,8 +226,8 @@
             (electric-pair-mode 1))
           )
 
-(use-package solarized-theme
-  :ensure t
-  :config
-    (load-theme 'solarized-light t)
-  )
+;; (use-package solarized-theme
+;;   :ensure t
+;;   :config
+;;     (load-theme 'solarized-light t)
+;;   )
