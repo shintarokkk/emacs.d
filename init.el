@@ -226,6 +226,24 @@
             (electric-pair-mode 1))
           )
 
+;; 句読点をドット、カンマにする
+;; 出典: https://sugawarayusuke.hatenablog.com/entry/2016/01/22/230346
+(defun replace-dot-comma ()
+  "s/。/．/g; s/、/，/g;する"
+  (interactive)
+  (let ((curpos (point)))
+    (goto-char (point-min))
+    (while (search-forward "。" nil t) (replace-match "．"))
+    (goto-char (point-min))
+    (while (search-forward "、" nil t) (replace-match "，"))
+    (goto-char curpos)
+    ))
+
+(add-hook 'tex-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'replace-dot-comma nil 'make-it-local)
+             ))
+
 ;; (use-package solarized-theme
 ;;   :ensure t
 ;;   :config
