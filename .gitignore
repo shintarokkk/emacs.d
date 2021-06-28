@@ -6,3 +6,5 @@
 auto-save-list
 elpa
 .lsp-session-v1
+.cache
+eln-cache

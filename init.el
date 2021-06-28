@@ -1,5 +1,9 @@
 ;; Global Setting Key
 ;; prohibit opening another buffer when "M-x shell"
+
+;; suppress warnings and errors popup in native compile
+(setq native-comp-async-report-warnings-errors nil)
+
 (add-to-list 'display-buffer-alist
              '("^\\*shell\\*$" . (display-buffer-same-window)))
 
