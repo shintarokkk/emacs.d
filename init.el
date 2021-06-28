@@ -97,7 +97,7 @@
 ;; python(pyright) -> $ npm install -g pyright
 (use-package lsp-mode
   :ensure t
-  :hook ((python-mode c-mode c++-mode rust-mode javascript-mode typescript-mode) . lsp)
+  :hook ((python-mode c-mode c++-mode rust-mode) . lsp)
   :bind (("C-c r" . lsp-format-region)
          ("C-c b" . lsp-format-buffer))
   :custom
@@ -182,14 +182,6 @@
   :ensure t
   )
 
-(use-package typescript-mode
-  :ensure t
-  :config
-  (progn
-    (add-to-list 'auto-mode-alist '("\\.ts?x$" . typescript-mode))
-    )
-  )
-
 (add-hook 'rust-mode-hook
           (lambda ()
             (electric-pair-mode 1))
@@ -212,16 +204,6 @@
           )
 
 (add-hook 'cmake-mode-hook
-          (lambda ()
-            (electric-pair-mode 1))
-          )
-
-(add-hook 'javascript-mode-hook
-          (lambda ()
-            (electric-pair-mode 1))
-          )
-
-(add-hook 'typescript-mode-hook
           (lambda ()
             (electric-pair-mode 1))
           )
