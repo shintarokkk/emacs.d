@@ -84,7 +84,7 @@
   (global-company-mode)
   ;; avoid lower casing in plain text
   (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0.1)
+  (setq company-idle-delay 0.5)
   (setq company-minimum-prefix-length 3)
   (setq company-selection-wrap-around t)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
@@ -101,7 +101,7 @@
 ;; python(pyright) -> $ npm install -g pyright
 (use-package lsp-mode
   :ensure t
-  :hook ((python-mode c-mode c++-mode rust-mode) . lsp)
+  :hook ((c-mode c++-mode rust-mode) . lsp)
   :bind (("C-c r" . lsp-format-region)
          ("C-c b" . lsp-format-buffer))
   :custom
@@ -124,12 +124,20 @@
   )
 
 ;; pyrightは型ヒントしてくれるがnp.matrixでエラー出したりと微妙？
-(use-package lsp-pyright
+;; (use-package lsp-pyright
+;;   :ensure t
+;;   :hook (python-mode . (lambda ()
+;;                          (require 'lsp-pyright)
+;;                          (lsp)))
+;;   )
+
+(use-package lsp-python-ms
   :ensure t
+  :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
+                         (require 'lsp-python-ms)
                          (lsp)))
-  )
+  :init (setq lsp-python-ms-executable "~/.emacs.d/python-language-server/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer"))
 
 (use-package python-black
   :ensure t
