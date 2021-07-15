@@ -101,12 +101,18 @@
 ;; python(pyright) -> $ npm install -g pyright
 (use-package lsp-mode
   :ensure t
-  :hook ((c-mode c++-mode rust-mode) . lsp)
+  :hook
+  (c-mode . lsp-deferred)
+  (c++-mode . lsp-deferred)
+  (rust-mode . lsp-deferred)
+  ;; somehow "lsp-deferred" doesn't work for nxml-mode
+  (nxml-mode . lsp)
   :bind (("C-c r" . lsp-format-region)
          ("C-c b" . lsp-format-buffer))
   :custom
   (lsp-prefer-capf t)
   (lsp-rust-server 'rust-analyzer)
+  (lsp-file-watch-threshold 5000)
   :commands lsp
   )
 
