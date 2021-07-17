@@ -61,16 +61,16 @@
   )
 
 ;; xml-mode
-(add-to-list 'auto-mode-alist '("\\.launch" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.urdf" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.srdf" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.xacro" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.launch\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.urdf\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.srdf\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xacro\\'" . nxml-mode))
 
 (use-package yaml-mode
   :ensure t
   :config
   (progn
-    (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+    (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
   ))
 
 (use-package flycheck
