@@ -173,7 +173,17 @@
 (use-package neotree
   :ensure t
   :config
-  (bind-key [f8] 'neotree-toggle)
+  (progn
+    (bind-key [f8] 'neotree-toggle)
+    (setq neo-hidden-regexp-list
+          ;; '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.o$"))
+          '("\\.pyc$" "~$" "^#.*#$" "\\.elc$" "\\.o$"
+            "^\\.cache$"
+            "^\\.catkin_tools$"
+            "^\\.clangd$"
+            "^\\.git$"
+            "^\\.vscode$"))
+    )
   )
 
 (use-package doom-themes
