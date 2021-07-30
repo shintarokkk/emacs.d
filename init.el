@@ -113,6 +113,8 @@
   (lsp-prefer-capf t)
   (lsp-rust-server 'rust-analyzer)
   (lsp-file-watch-threshold 5000)
+  (lsp-clients-clangd-args
+   '("--header-insertion=never"))
   :commands lsp
   )
 
