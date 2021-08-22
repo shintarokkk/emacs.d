@@ -63,6 +63,7 @@
 ;; xml-mode
 (add-to-list 'auto-mode-alist '("\\.launch\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.urdf\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.sdf\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.srdf\\'" . nxml-mode))
 (add-to-list 'auto-mode-alist '("\\.xacro\\'" . nxml-mode))
 
