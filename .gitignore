@@ -8,3 +8,6 @@ elpa
 .lsp-session-v1
 .cache
 eln-cache
+kkcrc
+tramp
+url
