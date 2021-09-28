@@ -15,7 +15,7 @@
 (setq gc-cons-threshold (* gc-cons-threshold 10))
 
 (add-to-list 'load-path (expand-file-name (concat user-emacs-directory "site-lisp")))
-(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+(add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
