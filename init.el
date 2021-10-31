@@ -191,6 +191,13 @@
           "^\\.vscode$"))
   )
 
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (progn
+    (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  )
+
 ;;;;;;;;;;;;;;;;;;;;
 ;; language modes ;;
 ;;;;;;;;;;;;;;;;;;;;
