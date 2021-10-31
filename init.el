@@ -228,24 +228,12 @@
   :ensure t
   )
 
-(use-package lsp-python-ms
+(use-package lsp-pyright
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
+                         (require 'lsp-pyright)
                          (lsp)))
-  :init
-  ;; need to build this manually
-  (setq lsp-python-ms-executable "~/.emacs.d/python-language-server/output/bin/Release/linux-x64/publish/Microsoft.Python.LanguageServer")
   )
-
-;; pyrightは型ヒントしてくれるがnp.matrixでエラー出したりと微妙？
-;; (use-package lsp-pyright
-;;   :ensure t
-;;   :hook (python-mode . (lambda ()
-;;                          (require 'lsp-pyright)
-;;                          (lsp)))
-;;   )
 
 (use-package python-black
   :ensure t
