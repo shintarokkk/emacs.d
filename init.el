@@ -102,6 +102,7 @@
   :hook
   (c-mode . lsp-deferred)
   (c++-mode . lsp-deferred)
+  (cmake-mode . lsp-deferred)
   (rust-mode . lsp-deferred)
   ;; somehow "lsp-deferred" doesn't work for nxml-mode
   (nxml-mode . lsp)
@@ -234,6 +235,8 @@
                          (require 'lsp-pyright)
                          (lsp)))
   )
+
+(setq-default nxml-slash-auto-complete-flag t)
 
 (use-package python-black
   :ensure t
