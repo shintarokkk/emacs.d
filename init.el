@@ -199,6 +199,23 @@
     (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
   )
 
+(use-package tree-sitter
+  :ensure t
+  :hook
+  (c-mode . tree-sitter-mode)
+  (c-mode . tree-sitter-hl-mode)
+  (c++-mode . tree-sitter-mode)
+  (c++-mode . tree-sitter-hl-mode)
+  (rust-mode . tree-sitter-mode)
+  (rust-mode . tree-sitter-hl-mode)
+  (python-mode . tree-sitter-mode)
+  (python-mode . tree-sitter-hl-mode)
+  )
+
+(use-package tree-sitter-langs
+  :ensure t
+  )
+
 ;;;;;;;;;;;;;;;;;;;;
 ;; language modes ;;
 ;;;;;;;;;;;;;;;;;;;;
