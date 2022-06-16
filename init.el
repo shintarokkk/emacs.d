@@ -82,8 +82,8 @@
   (global-company-mode)
   ;; avoid lower casing in plain text
   (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0.5)
-  (setq company-minimum-prefix-length 3)
+  (setq company-idle-delay 0.4)
+  (setq company-minimum-prefix-length 2)
   (setq company-selection-wrap-around t)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
@@ -222,7 +222,8 @@
 
 (add-hook 'c-mode-hook
           (lambda ()
-            (setq c-basic-offset 4))
+            (setq c-basic-offset 4)
+            (c-set-offset 'inextern-lang 0))
           )
 
 (add-hook 'tex-mode-hook
@@ -244,6 +245,14 @@
 
 (use-package cmake-mode
   :ensure t
+  )
+
+(use-package google-c-style
+  :ensure t
+  :hook
+  (c++-mode . google-c-style)
+  :config
+  (c-set-offset 'inextern-lang 0)
   )
 
 (use-package lsp-pyright
