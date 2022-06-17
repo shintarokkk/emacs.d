@@ -250,7 +250,7 @@
 (use-package google-c-style
   :ensure t
   :hook
-  (c++-mode . google-c-style)
+  (c++-mode . google-set-c-style)
   :config
   (c-set-offset 'inextern-lang 0)
   )
