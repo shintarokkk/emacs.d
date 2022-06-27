@@ -24,6 +24,9 @@
 ;; for rust-analyzer
 (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
 
+;; mainly for julia
+(set-language-environment "UTF-8")
+
 ;;;;;;;;;;;;;;;;;;;;;
 ;; package manager ;;
 ;;;;;;;;;;;;;;;;;;;;;
@@ -103,6 +106,7 @@
   (c-mode . lsp-deferred)
   (c++-mode . lsp-deferred)
   (cmake-mode . lsp-deferred)
+  (julia-mode . lsp-deferred)
   (rust-mode . lsp-deferred)
   ;; somehow "lsp-deferred" doesn't work for nxml-mode
   (nxml-mode . lsp)
@@ -206,6 +210,8 @@
   (c-mode . tree-sitter-hl-mode)
   (c++-mode . tree-sitter-mode)
   (c++-mode . tree-sitter-hl-mode)
+  (julia-mode . tree-sitter-mode)
+  (julia-mode . tree-sitter-hl-mode)
   (rust-mode . tree-sitter-mode)
   (rust-mode . tree-sitter-hl-mode)
   (python-mode . tree-sitter-mode)
@@ -253,6 +259,22 @@
   (c++-mode . google-set-c-style)
   :config
   (c-set-offset 'inextern-lang 0)
+  )
+
+(use-package julia-mode
+  :ensure t
+  )
+
+(use-package julia-repl
+  :ensure t
+  :hook
+  (julia-mode . julia-repl-mode)
+  )
+
+(use-package lsp-julia
+  :ensure t
+  :config
+  (setq lsp-julia-environment "~/.julia/environments/v1.7")
   )
 
 (use-package lsp-pyright
