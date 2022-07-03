@@ -274,7 +274,7 @@
 (use-package lsp-julia
   :ensure t
   :config
-  (setq lsp-julia-environment "~/.julia/environments/v1.7")
+  (setq lsp-julia-default-environment "~/.julia/environments/v1.7")
   )
 
 (use-package lsp-pyright
