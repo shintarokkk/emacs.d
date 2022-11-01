@@ -228,7 +228,12 @@
 
 (add-hook 'c-mode-hook
           (lambda ()
-            (setq c-basic-offset 4)
+            (setq c-basic-offset 2)
+            (c-set-offset 'inextern-lang 0))
+          )
+
+(add-hook 'c++-mode-hook
+          (lambda ()
             (c-set-offset 'inextern-lang 0))
           )
 
@@ -289,6 +294,9 @@
 (use-package python-black
   :ensure t
   :after python
+  :hook (python-mode . (lambda ()
+                         (local-set-key (kbd "C-c b") 'python-black-buffer)
+                         ))
   )
 
 (use-package rust-mode
